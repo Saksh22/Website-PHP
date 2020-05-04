@@ -1,4 +1,6 @@
+
 <?php include 'includes/db.php';?>
+
 <html>
         
             <head>
@@ -19,18 +21,11 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="homepage.php">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <?php
-                                $sel_cat="SELECT * FROM category";
-                                $run_cat=mysqli_query($conn,$sel_cat);
-                                while($rows=mysqli_fetch_assoc($run_cat)){
-                                    echo '<li class="nav-item">
-                                    <a class="nav-link" href="menu.php?c_name='.$rows['c_name'].'">'.ucfirst($rows['c_name']).'</a></li>';
-
-                                }
-                            ?>
-                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
@@ -42,7 +37,9 @@
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Disabled</a>
+                            </li>
                             </ul>
                             <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -58,24 +55,27 @@
                     <section class="card col-lg-9">
                     <?php
 
-                        $sel_sql="SELECT * FROM posts";
+                        $sel_sql="SELECT * FROM posts WHERE id='$_GET[post_id]'";
                         $run_sql=mysqli_query($conn,$sel_sql);
                         while($rows=mysqli_fetch_assoc($run_sql)){
                             echo '<div class="card" style="padding-top: 20px;">
-                                    <div class="card-header">
-                                        '.ucfirst($rows['category']).'
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">'.$rows['title'].'</h5>
-                                        <p class="card-text">'.substr($rows['description'],0,200).'....</p>
-                                        <a href="notice.php?post_id='.$rows['id'].'" class="btn btn-primary">Read More</a>
-                                    </div>
-                                </div>';
+                            <div class="card-header">
+                            '.ucfirst($rows['category']).'
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">'.$rows['title'].'</h5>
+                                <p class="card-text">'.$rows['description'].'</p>
+                                
+                            </div>
+                        </div>';
                         }
                     
                     
                     ?>
+                    
                         
+                           
+
                             
                             
                     
@@ -110,14 +110,14 @@
                     <div class="list-group" >
                     <?php
 
-                                $sel_side="SELECT * FROM posts WHERE category =events";
-                                $run_side=mysqli_query($conn,$sel_side);
-                                while($rows=mysqli_fetch_assoc($run_side)){
+                            $sel_side="SELECT * FROM posts";
+                            $run_side=mysqli_query($conn,$sel_side);
+                            while($rows=mysqli_fetch_assoc($run_side)){
 
-                                    echo '<a href="notice.php?post_id='.$rows['id'].'" class="list-group-item">
-                                    <h4 class="list-group-item-heading">'.$rows['title'].'</h4>
-                                    <p class="list-group-item-text">'.substr($rows['description'],0,100).'</p></a>
-                                    ';
+                                echo '<a href="notice.php?post_id='.$rows['id'].'" class="list-group-item">
+                                <h4 class="list-group-item-heading">'.$rows['title'].'</h4>
+                                <p class="list-group-item-text">'.substr($rows['description'],0,100).'</p></a>
+    ';
 
 }
 ?>

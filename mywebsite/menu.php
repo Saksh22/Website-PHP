@@ -18,14 +18,25 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="homepage.php">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <?php
-                                $sel_cat="SELECT * FROM category";
+                                $sel_cat="SELECT * FROM category ";
                                 $run_cat=mysqli_query($conn,$sel_cat);
                                 while($rows=mysqli_fetch_assoc($run_cat)){
-                                    echo '<li class="nav-item">
+
+                                    if($_GET['c_name'] == $rows['c_name']){
+
+                                        $class='active';
+                                    }
+                                    else{
+
+                                        $class='';
+                                    }
+
+
+                                    echo '<li class="nav-item '.$class.'" >
                                     <a class="nav-link" href="menu.php?c_name='.$rows['c_name'].'">'.ucfirst($rows['c_name']).'</a></li>';
 
                                 }
@@ -58,7 +69,7 @@
                     <section class="card col-lg-9">
                     <?php
 
-                        $sel_sql="SELECT * FROM posts";
+                        $sel_sql="SELECT * FROM posts WHERE category='$_GET[c_name]'";
                         $run_sql=mysqli_query($conn,$sel_sql);
                         while($rows=mysqli_fetch_assoc($run_sql)){
                             echo '<div class="card" style="padding-top: 20px;">
@@ -110,17 +121,18 @@
                     <div class="list-group" >
                     <?php
 
-                                $sel_side="SELECT * FROM posts WHERE category =events";
-                                $run_side=mysqli_query($conn,$sel_side);
-                                while($rows=mysqli_fetch_assoc($run_side)){
+                        $sel_side="SELECT * FROM posts";
+                        $run_side=mysqli_query($conn,$sel_side);
+                        while($rows=mysqli_fetch_assoc($run_side)){
 
-                                    echo '<a href="notice.php?post_id='.$rows['id'].'" class="list-group-item">
-                                    <h4 class="list-group-item-heading">'.$rows['title'].'</h4>
-                                    <p class="list-group-item-text">'.substr($rows['description'],0,100).'</p></a>
-                                    ';
+                            echo '<a href="notice.php?post_id='.$rows['id'].'" class="list-group-item">
+                            <h4 class="list-group-item-heading">'.$rows['title'].'</h4>
+                            <p class="list-group-item-text">'.substr($rows['description'],0,100).'</p></a>
+                            ';
 
-}
-?>
+                        }
+                    ?>
+                            
                             </div>
                     
                         </div>
