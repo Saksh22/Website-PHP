@@ -10,27 +10,36 @@
             </head>
         <body>
             
-            <?php include 'includes/header.php';?>
+        <?php include 'includes/header.php';?>
             <div class="container-fluid">
-                <h1 style="padding-top: 60px;">Updates</h1>
+                <h1 style="padding-top: 60px;">Search Results</h1>
                 <article class="row">
                     <section class="card col-lg-9">
                     <?php
 
-                        $sel_sql="SELECT * FROM posts";
-                        $run_sql=mysqli_query($conn,$sel_sql);
-                        while($rows=mysqli_fetch_assoc($run_sql)){
-                            echo '<div class="card" style="padding-top: 20px;">
-                                    <div class="card-header">
-                                        '.ucfirst($rows['category']).'
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">'.$rows['title'].'</h5>
-                                        <p class="card-text">'.substr($rows['description'],0,200).'....</p>
-                                        <a href="notice.php?post_id='.$rows['id'].'" class="btn btn-primary">Read More</a>
-                                    </div>
-                                </div>';
+                        if(isset($_GET['search_submit'])){
+
+
+                            $sel_sql="SELECT * FROM posts WHERE title LIKE '%$_GET[search]%' OR description LIKE '%$_GET[search]%' OR  category LIKE '%$_GET[search]%'";
+                            $run_sql=mysqli_query($conn,$sel_sql);
+                            while($rows=mysqli_fetch_assoc($run_sql)){
+                                echo '<div class="card" style="padding-top: 20px;">
+                                        <div class="card-header">
+                                            '.ucfirst($rows['category']).'
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">'.$rows['title'].'</h5>
+                                            <p class="card-text">'.substr($rows['description'],0,200).'....</p>
+                                            <a href="notice.php?post_id='.$rows['id'].'" class="btn btn-primary">Read More</a>
+                                        </div>
+                                    </div>';
+                            }
+                            
+
+
                         }
+
+                      
                     
                     
                     ?>
@@ -40,7 +49,6 @@
                     
 
                     </section>
-
                     <?php include 'includes/sidebar.php';?>
                     
                     
