@@ -1,61 +1,25 @@
-<aside class="col-lg-3">
-                    <form style="padding-bottom: 20px;">
-                    <div class="card" >
-                                    <div class="card-header">
-                                        Login
-                                    </div>
-                                    <div class="card-body">
-                                    
-                                    <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                        </div>
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </div>
-                                    </div>
-                    <h2 style="padding-top: 20px;">Upcoming Events</h2>
-                    <div class="list-group" >
-                    <?php
-
-                                $sel_side="SELECT * FROM posts";
-                                $run_side=mysqli_query($conn,$sel_side);
-                                while($rows=mysqli_fetch_assoc($run_side)){
-
-                                    if(isset($_GET['post_id'])){
-                                        if($_GET['post_id'] == $rows['id']){
-
-                                            $class='active';
-                                        }else{
-                                            $class='';
-                                        }
-
-                                    }else{
-                                        $class='';
-                                    }
-                                    echo '<a href="notice.php?post_id='.$rows['id'].'" class="list-group-item '.$class.'">
-                                    <h4 class="list-group-item-heading">'.$rows['title'].'</h4>
-                                    <p class="list-group-item-text">'.substr($rows['description'],0,100).'</p></a>
-                                ';
-
-}
-?>
+<div class="col-lg-2" >
+                <nav class="navbar bg-light">
+                        <ul class="navbar-nav" style="height:2000px;">
+                        <li class="nav-item"><a class="nav-link" href="index.php"><i class="fa fa-cloud"></i> Dashboard</a></li>
+                        <li class="nav-item" style="padding-top:1px;padding-bottom:10px;"><a class="navbar-link" href="#" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fa fa-plus-square"></i> New Items</a>
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                            <ul class="navbar-nav" id="new-items">
+                                <li class="nav-item"><a class="nav-link" href="new_post.php"><i class="fa fa-pencil"></i> New Post</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-plus-square-o"></i> New Category</a></li>
+                            </ul>
                             </div>
-                    
-                        </div>
-                        
-                        
-                        
-                    </form>
-                    </aside>
+                            
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="view_post.php"><i class="fa fa-list"></i> Posts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-th-list"></i> Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user-circle"></i> Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="view_comments.php"><i class="fa fa-quote-left"></i> Comments</a></li>
+                        </ul>
+
+                </nav>
+                
+            </div>
 
 
 

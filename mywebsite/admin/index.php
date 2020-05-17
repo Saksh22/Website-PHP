@@ -17,28 +17,7 @@
             <?php include 'includes/header.php';?>
             <div style="width:60px; height:60px;"></div>
             <div class="row">
-            <div class="col-lg-2" >
-                <nav class="navbar bg-light">
-                        <ul class="navbar-nav" style="height:2000px;">
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-cloud"></i> Dashboard</a></li>
-                        <li class="nav-item" style="padding-top:1px;padding-bottom:10px;"><a class="navbar-link" href="#" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fa fa-plus-square"></i> New Items</a>
-                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                            <ul class="navbar-nav" id="new-items">
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-pencil"></i> New Post</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-plus-square-o"></i> New Category</a></li>
-                            </ul>
-                            </div>
-                            
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-list"></i> Posts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-th-list"></i> Categories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user-circle"></i> Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-quote-left"></i> Comments</a></li>
-                        </ul>
-
-                </nav>
-                
-            </div>
+            <?php include 'includes/sidebar.php';?>
             
             <div class="col-lg-10">
             <div class="row">
@@ -129,7 +108,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="row">
-                    <div class="col-lg-6" >
+                    <div class="col-lg-8" >
                         
                             <div class="panel panel-default" style="padding-top:50px;">
                             <div class="panel-heading"><h3>Users List</h3></div>
@@ -171,8 +150,8 @@
             
                         </div>
                     </div> 
-                    <div class="col-lg-6" >
-                    <div class="col-md-8" style="padding-top:50px;">
+                    <div class="col-lg-4" >
+                    <div class="col-md-12" style="padding-top:50px;">
                     <div class="page-header"><h3>Profile</h3></div>
                 <div class="card text-white bg-primary mb-3">
                 
