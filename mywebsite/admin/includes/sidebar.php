@@ -13,7 +13,7 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="view_post.php"><i class="fa fa-list"></i> Posts</a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-th-list"></i> Categories</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user-circle"></i> Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="view_profile.php"><i class="fa fa-user-circle"></i> Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="view_comments.php"><i class="fa fa-quote-left"></i> Comments</a></li>
                         </ul>
 

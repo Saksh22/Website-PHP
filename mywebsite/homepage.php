@@ -12,9 +12,12 @@
             
             <?php include 'includes/header.php';?>
             <div class="container-fluid">
-                <h1 style="padding-top: 60px;">Updates</h1>
+                
                 <article class="row">
                     <section class="card col-lg-9">
+                    <div class="jumbotron" style="padding-top: 100px;">
+                            <h1>Updates</h1>
+                        </div>
                     <?php
 
                         $sel_sql="SELECT * FROM posts";
