@@ -1,24 +1,21 @@
 <aside class="col-lg-3" style="padding-top:70px;">
-                    <form style="padding-bottom: 20px;">
+                    <form style="padding-bottom: 20px;"  role="form" action="accounts/login.php" method="post">
                     <div class="card" >
                                     <div class="card-header">
                                         Login
                                     </div>
-                                    <div class="card-body" role="form" action="accounts/login.php" method="post">
+                                    <div class="card-body">
                                     
                                     <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="user_name" name="user_name" aria-describedby="emailHelp" placeholder="Enter email">
+                                            <label for="user_name">Email address</label>
+                                            <input type="email" class="form-control" id="user_name" name="user_name"  placeholder="Enter email">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
+                                            <label for="password">Password</label>
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                         </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                        </div>
+                                        
                                         <button type="submit" name="submit_login" class="btn btn-success">Submit</button>
                                     </div>
                                     </div>
